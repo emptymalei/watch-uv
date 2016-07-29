@@ -1,8 +1,6 @@
-locpostal = 87106;
-
 function indexFun(locpostal) {
 
-urlJSONOriginal = 'https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/'+locpostal+'/JSONP';
+urlJSONOriginal = 'https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/'+locpostal+'/JSON';
 
 urlJSONProxy = 'https://jsonp.afeld.me/?callback=&url=https%3A%2F%2Fiaspub.epa.gov%2Fenviro%2Fefservice%2FgetEnvirofactsUVHOURLY%2FZIP%2F'+locpostal+'%2FJSON';
 
@@ -29,7 +27,10 @@ $(document).ready(function() {
               baryvalue.push(value)
              html+='<tr>'+'<td>'+order+'</td>'+'<td>'+timestp+'</td>'+'<td>'+value+'</td>'+'<td>'+zipvalue+'</td>'+'</tr>'
             }
+             $('#table-data').empty(); // Empty the table before append
             $("#table-data").append(html);
+            $("#categoryDataSourceLink").empty();
+            $("#categoryDataSourceLink").append('JSON Data: <a href="https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/'+locpostal+'/JSON">EPA</a>');
 
             var barplotdata = [{
               x: barxlabel.slice(2,15),
@@ -48,3 +49,9 @@ $(document).ready(function() {
 });
 
 } // END OF GRAND FUNCTION
+
+function updateButton () {
+postalcode = document.getElementById('zipcode').value
+indexFun(postalcode)
+
+}

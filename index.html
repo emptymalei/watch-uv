@@ -103,11 +103,18 @@
 
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-8">
                         <div class="form-group">
                             <label>ZIP CODE (USA)</label>
-                                <input type="text" class="form-control border-input" placeholder="ZIP Code" value="87106">
+                                <input id="zipcode" type="text" class="form-control border-input" placeholder="ZIP Code" value="87131">
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-info btn-fill btn-wd" style="display:block;" onclick="updateButton ()">Update UV Index</button>
+                        </div>
+
                     </div>
                 </div>
 
@@ -117,21 +124,21 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">UV Index Chart</h4>
-                                <p class="category">From <a href="https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/87106/JSONP">EPA</a></p>
+                                <p class="category" id="categoryDataSourceLink"></p>
                             </div>
                             <div class="content">
                                 <div id="pltlybar" class="ct-chart"></div>
 
-                                <script>
-                                indexFun(87106)
-                                </script>
+                                <!-- Grab The Input Data -->
+                                <script>updateButton ()</script>
+
                                 <div class="footer">
                                     <div class="chart-legend">
                                         <i class="fa fa-circle text-info"></i> Please note that even index 3 can harm your body.
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="ti-reload"></i> EPA Data Source: <a href="https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/87106/JSONP">HERE</a>
+                                        <i class="ti-reload"></i> Using <a href="https://www.epa.gov/enviro/web-services#hourlyzip">EPA RESTful Data Service API</a>
                                     </div>
                                 </div>
                             </div>
