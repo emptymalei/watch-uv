@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Watch UV</title>
+        <script src="assets/jquery.min.js"></script>
+
+        <script src="assets/uri.js"></script>
+        <script src="assets/jsonp.js"></script>
+
+         <script src="assets/plotly-latest.min.js"></script>
+
+
+<!-- <script>
+  $.jsonp({
+    url: 'https://jsonp.afeld.me/?callback=&url=https%3A%2F%2Fiaspub.epa.gov%2Fenviro%2Fefservice%2FgetEnvirofactsUVHOURLY%2FZIP%2F87106%2FJSON', // any JSON endpoint
+    corsSupport: true, // if URL above supports CORS (optional)
+    jsonpSupport: true, // if URL above supports JSONP (optional)
+
+    success: function(data){
+      alert('CORS or JSONP! ' + data.awesome);
+    }
+    // error, etc.
+  });
+</script> -->
+    </head>
+
+    <body>
+
+
+<div id="pltlybar" style="width: 80%; height: 400px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+<script src="assets/uv.js"></script>
+
+        <div>
+            <p class="date-time">The ID is </p>
+            <p class="order">The Ordering Number </p>
+            <p class="uv-value">The uv is </p>
+        </div>
+        <div id="list-uv">
+        </div>
+
+
+<div id="tester" style="width:600px;height:250px;"></div>
+<script>
+	TESTER = document.getElementById('tester');
+	Plotly.plot( TESTER, [{
+	x: [1, 2, 3, 4, 5],
+	y: [1, 2, 4, 8, 16] }], {
+	margin: { t: 0 } } );
+</script>
+
+
+
+
+    </body>
+</html>
