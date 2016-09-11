@@ -1,0 +1,25 @@
+.text-low {
+	color: #AFE874;
+}
+
+.text-moderate {
+	color: #FFE66D;
+}
+
+.text-high {
+	color: #FFA684;
+}
+
+.text-veryhigh {
+	color: #FF6B6B;
+}
+
+.text-extreme {
+	color: #4C3690;
+}
+
+/*<i class="fa fa-circle text-low"></i> Low
+<i class="fa fa-circle text-moderate"></i> Moderate
+<i class="fa fa-circle text-high"></i> High
+<i class="fa fa-circle text-veryhigh"></i> Very High
+<i class="fa fa-circle text-extreme"></i> Extreme*/

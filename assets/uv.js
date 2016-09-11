@@ -1,6 +1,7 @@
-var colorPallete = ['rgb(175,232,116)','rgb(255,230,109)','rgb(255,166,132)','rgb(255,107,107)','rgb(49.54,56)'];
-var colorPalletHex = ['#AFE874','#FFE66D','#FFA684','#FF6B6B','#313638'];
+var colorPallete = ['rgb(175,232,116)','rgb(255,230,109)','rgb(255,166,132)','rgb(255,107,107)','rgb(76.54,144)'];
+var colorPalletHex = ['#AFE874','#FFE66D','#FFA684','#FF6B6B','#4C3690'];
 
+var warningTextPallete = ['Low','Moderate','High','Very High','Extreme']
 
 function indexFun(locpostal) {
 
@@ -39,7 +40,17 @@ $(document).ready(function() {
             var showValueasText = []
 
             for(i=0;i<baryvalue.slice(2,15).length;i++){
-              showValueasText.push("UV Index Value: " + baryvalue.slice(2,15)[i])
+              if(baryvalue.slice(2,15)[i]<=2){
+                showValueasText.push(warningTextPallete[0])
+              } else if(baryvalue.slice(2,15)[i]<=5) {
+                showValueasText.push(warningTextPallete[1])
+              } else if(baryvalue.slice(2,15)[i]<=7){
+                showValueasText.push(warningTextPallete[2])
+              } else if(baryvalue.slice(2,15)[i]<=10){
+                showValueasText.push(warningTextPallete[3])
+              } else {
+                showValueasText.push(warningTextPallete[4])
+              }  
             }
 
             
@@ -56,9 +67,7 @@ $(document).ready(function() {
                 colorFunction.push(colorPallete[3])
               } else {
                 colorFunction.push(colorPallete[4])
-              }
-
-              
+              }  
             }
 
 
