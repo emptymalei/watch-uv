@@ -1,3 +1,7 @@
+var colorPallete = ['rgb(175,232,116)','rgb(255,230,109)','rgb(255,166,132)','rgb(255,107,107)','rgb(49.54,56)'];
+var colorPalletHex = ['#AFE874','#FFE66D','#FFA684','#FF6B6B','#313638'];
+
+
 function indexFun(locpostal) {
 
 urlJSONOriginal = 'https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/'+locpostal+'/JSON';
@@ -32,10 +36,41 @@ $(document).ready(function() {
             $("#categoryDataSourceLink").empty();
             $("#categoryDataSourceLink").append('JSON Data: <a href="https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/'+locpostal+'/JSON">EPA</a>');
 
+            var showValueasText = []
+
+            for(i=0;i<baryvalue.slice(2,15).length;i++){
+              showValueasText.push("UV Index Value: " + baryvalue.slice(2,15)[i])
+            }
+
+            
+            var colorFunction = []
+
+            for(i=0;i<baryvalue.slice(2,15).length;i++){
+              if(baryvalue.slice(2,15)[i]<=2){
+                colorFunction.push(colorPallete[0])
+              } else if(baryvalue.slice(2,15)[i]<=5) {
+                colorFunction.push(colorPallete[1])
+              } else if(baryvalue.slice(2,15)[i]<=7){
+                colorFunction.push(colorPallete[2])
+              } else if(baryvalue.slice(2,15)[i]<=10){
+                colorFunction.push(colorPallete[3])
+              } else {
+                colorFunction.push(colorPallete[4])
+              }
+
+              
+            }
+
+
             var barplotdata = [{
               x: barxlabel.slice(2,15),
               y: baryvalue.slice(2,15),
-              type: 'bar'
+              type: 'bar',
+              text: showValueasText,
+              marker: {
+                  color: colorFunction,//['rgb(0,0,0)','rgb(255,0,0)','rgb(0,0,0)','rgb(0,0,0)','rgb(0,0,0)','rgb(255,0,0)'],
+                  opacity: 0.9
+                }
             }];
             var layout = {
 	               title: 'Hourly UV Index ('+locpostal+')',
