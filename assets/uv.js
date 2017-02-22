@@ -7,7 +7,11 @@ function indexFun(locpostal) {
 
 urlJSONOriginal = 'https://iaspub.epa.gov/enviro/efservice/getEnvirofactsUVHOURLY/ZIP/'+locpostal+'/JSON';
 
-urlJSONProxy = 'https://jsonp.afeld.me/?callback=&url=https%3A%2F%2Fiaspub.epa.gov%2Fenviro%2Fefservice%2FgetEnvirofactsUVHOURLY%2FZIP%2F'+locpostal+'%2FJSON';
+
+urlJSONProxy = 'https://json-proxy-server.herokuapp.com/?callback=&url=https%3A%2F%2Fiaspub.epa.gov%2Fenviro%2Fefservice%2FgetEnvirofactsUVHOURLY%2FZIP%2F'+locpostal+'%2FJSON';
+
+
+// urlJSONProxy = 'https://jsonp.afeld.me/?callback=&url=https%3A%2F%2Fiaspub.epa.gov%2Fenviro%2Fefservice%2FgetEnvirofactsUVHOURLY%2FZIP%2F'+locpostal+'%2FJSON';
 
 var html='';
 var barxlabel = [];
@@ -50,10 +54,10 @@ $(document).ready(function() {
                 showValueasText.push(warningTextPallete[3])
               } else {
                 showValueasText.push(warningTextPallete[4])
-              }  
+              }
             }
 
-            
+
             var colorFunction = []
 
             for(i=0;i<baryvalue.slice(2,15).length;i++){
@@ -67,7 +71,7 @@ $(document).ready(function() {
                 colorFunction.push(colorPallete[3])
               } else {
                 colorFunction.push(colorPallete[4])
-              }  
+              }
             }
 
 
