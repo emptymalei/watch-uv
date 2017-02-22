@@ -41,10 +41,16 @@
 
     <script src="assets/uv.js"></script>
 
+	 <style>
+	 [v-cloak] {
+		 display: none;
+	 }
+	 </style>
+
 </head>
 <body>
 
-<div class="wrapper">
+<div class="wrapper" id="app">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
 
     <!--
@@ -114,10 +120,17 @@
 
 
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label>ZIP CODE (USA)</label>
-                                <input id="zipcode" type="text" class="form-control border-input" placeholder="ZIP Code" value="87131">
+                                <input v-model="zipInput" id="zipcode" type="text" class="form-control border-input" placeholder="ZIP Code" value="87106">
+                        </div>
+                    </div>
+						  <div class="col-md-4">
+                        <div class="form-group">
+                            <label>City</label></label>
+                                <span type="text" class="form-control">{{cityFromInput}}
+										  </span>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -244,6 +257,14 @@
 	<script src="assets/js/paper-dashboard.js"></script>
 
 
+	<!-- A Vue Excerse BEGIN -->
+	<script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+	<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
+
+	<script src="assets/vue-app.js"></script>
+
+	<!-- A Vue Excerse END -->
 
 	<!-- <script type="text/javascript">
     	$(document).ready(function(){
